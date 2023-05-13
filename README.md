@@ -1,5 +1,6 @@
 ### Mensageria Fullstack
 
+![mostrando mensageria fullstack](https://github.com/matefs/MENSAGERIA-FULLSTACK/assets/30128774/6eada3ec-7a8b-4504-ab56-86bfbccc9c1c)
 
 #### Formato da mensagem (retornado do banco de dados): 
 ```json 
