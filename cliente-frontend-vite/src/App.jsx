@@ -58,14 +58,14 @@ function SocketIODemo() {
       <button onClick={handleSubmit}>Notificar outros usuarios</button>
 </div>
 
+  <Space direction="horizontal" style={{ width: '50%' }}> 
  { existeMensagem.conteudo.titulo !=  "" && <Alert
       message={existeMensagem.conteudo.titulo}
       description={existeMensagem.conteudo.descricao}
       type={existeMensagem.categoria}
-      showIcon
-      closable
+      showIcon 
     /> }
-
+  </Space>
 
     </div>
   );
