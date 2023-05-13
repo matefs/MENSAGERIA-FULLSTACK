@@ -23,7 +23,7 @@ function SocketIODemo() {
   return (
     <div>
 
-      <button onClick={handleSubmit}>Send</button>
+      <button onClick={handleSubmit}>Notificar outros usuarios</button>
 
     </div>
   );
