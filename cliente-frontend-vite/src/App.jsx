@@ -1,36 +1,32 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 
-function App() {
-  const [mensagem, setMensagem] = useState("");
+function SocketIODemo() {
+  const socket = io("http://localhost:3000");
 
-  var socket;
-  
   useEffect(() => {
-    socket = io("http://localhost:3000");
-
-    // escutando a mensagem enviada pelo servidor
-    socket.on("mensagemParaCliente", (mensagem) => {
-      setMensagem(mensagem);
+    socket.on("connect", () => {
+      console.log("Connected to server");
     });
-
-    socket.on('transmissaoMensagem',(mensagem) => {
-      document.write('Essa mensagem foi transmitida de um cliente para todo o resto \n' + mensagem)
-    })
-
-    // enviando uma mensagem para o servidor
-    socket.emit("mensagemParaServidor", "Olá, servidor Socket.io!");
+    
   }, []);
+  
 
-  const teste =  function (){
-    socket.emit('transmitirOutrosClientes','Foi clicado na tela')
-  }
+  socket.on("messageBroadcast", (message) => {
+  alert(message)
+  });
+
+  const handleSubmit = () => {
+    socket.emit("messageBroadcast", "Mensagem primeiro cliente");
+  };
 
   return (
     <div>
-      <p onClick={teste}>Mensagem recebida do servidor: {mensagem}</p>
+
+      <button onClick={handleSubmit}>Send</button>
+
     </div>
   );
 }
 
-export default App;
+export default SocketIODemo;
