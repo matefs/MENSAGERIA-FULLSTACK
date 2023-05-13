@@ -14,7 +14,7 @@
     "descricao": "This is a notification message description.",
   },
   "origem": "System",
-  "estado": "Aguardando",
+  "foiLida": false,
   "categoria": "Informacao"
 }
 
@@ -31,7 +31,7 @@
     "descricao": "This is a notification message description.",
   },
   "origem": "System",
-  "estado": "Aguardando",
+  "foiLida": false,
   "categoria": "Informacao"
 }
 
