@@ -40,7 +40,7 @@ function SocketIODemo() {
 
   socket.on("messageBroadcast", (message) => {
   //alert(message.conteudo.descricao)
-  
+
   setExisteMensagem({ 
     ...message
   })
@@ -63,6 +63,7 @@ function SocketIODemo() {
       description={existeMensagem.conteudo.descricao}
       type={existeMensagem.categoria}
       showIcon
+      closable
     /> }
 
 
