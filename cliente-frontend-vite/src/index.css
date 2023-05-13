@@ -50,10 +50,18 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+div #centralizador{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+} 
 
 @media (prefers-color-scheme: light) {
   :root {
