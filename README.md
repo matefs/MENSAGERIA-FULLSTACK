@@ -1,7 +1,7 @@
 ### Mensageria Fullstack
 
 
-#### Formato da mensagem: 
+#### Formato da mensagem (retornado do banco de dados): 
 ```json 
 
 {
