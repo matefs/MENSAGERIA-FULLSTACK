@@ -40,16 +40,9 @@ function SocketIODemo() {
 
   socket.on("messageBroadcast", (message) => {
   //alert(message.conteudo.descricao)
+  
   setExisteMensagem({ 
-    usuarioNotificacao: message.usuarioNotificacao,
-    dataCriacao: message.dataCriacao,
-    conteudo: {
-      titulo: message.conteudo.titulo,
-      descricao: message.conteudo.descricao,
-    },
-    origem: message.origem,
-    foiLida: message.foiLida,
-    categoria: message.categoria, 
+    ...message
   })
 
   }); // fim recebimento messageBraodcast
