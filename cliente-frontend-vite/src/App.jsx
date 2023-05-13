@@ -64,6 +64,10 @@ function SocketIODemo() {
       description={existeMensagem.conteudo.descricao}
       type={existeMensagem.categoria}
       showIcon 
+      onClick={() => setExisteMensagem({
+      ...existeMensagem,
+      conteudo: {  titulo: '', descricao: ''}  
+    }) }
     /> }
   </Space>
 
