@@ -16,7 +16,7 @@
 
 ```
 
-- Observação: O id da mensagem só é criado quando ela é cadastrada no banco de dados. Ao enviar a solicitação para transmitir e então criar a mensagem, ela fica no formato: 
+- Observação: O id da mensagem só é criado quando ela é cadastrada no `banco de dados`. Ao enviar a solicitação para transmitir e então criar a mensagem, ela fica no formato: 
 
 ```json
 {
