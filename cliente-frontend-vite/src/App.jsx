@@ -23,7 +23,9 @@ function SocketIODemo() {
   return (
     <div>
 
+<div id="centralizador">
       <button onClick={handleSubmit}>Notificar outros usuarios</button>
+</div>
 
     </div>
   );
