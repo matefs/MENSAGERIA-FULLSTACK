@@ -17,7 +17,7 @@ function SocketIODemo() {
   });
 
   const handleSubmit = () => {
-    socket.emit("messageBroadcast", "Mensagem primeiro cliente");
+    socket.emit("messageBroadcast", "Mensagem enviada pelo primeiro cliente");
   };
 
   return (
