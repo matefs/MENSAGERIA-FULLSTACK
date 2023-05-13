@@ -68,6 +68,8 @@ function SocketIODemo() {
       ...existeMensagem,
       conteudo: {  titulo: '', descricao: ''}  
     }) }
+    style={{cursor:'pointer'}}
+
     /> }
   </Space>
 
