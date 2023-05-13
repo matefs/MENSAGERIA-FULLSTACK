@@ -1,25 +1,34 @@
-// importando a biblioteca do Socket.io
-const io = require("socket.io")(3000, {
+const express = require("express");
+const socketio = require("socket.io");
+const cors = require("cors");
+
+const app = express();
+const server = app.listen(3000, () => {
+  console.log("Server listening on port 3000");
+});
+
+const io = socketio(server, {
   cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"]
-  }
+    origin: "*",
+  },
 });
+  
 
-// escutando a conexão de um cliente
+var connectedClients = [] 
 io.on("connection", (socket) => {
-  console.log("Novo cliente conectado!");
+  console.log("New client connected", socket.client.id);
+  connectedClients.push(socket);
  
-  // enviando uma mensagem para o cliente conectado
-  socket.emit("mensagemParaCliente", "Bem-vindo ao servidor Socket.io!");
 
-  // escutando a mensagem enviada pelo cliente
-  socket.on("mensagemParaServidor", (mensagem) => {
-    console.log(`Mensagem recebida do cliente: ${mensagem}`);
-  });
+  socket.on('messageBroadcast',(mensagem) => socket.broadcast.emit('messageBroadcast', mensagem))
 
-  // broadcast 
-  socket.on('transmitirOutrosClientes',(mensagem) => {
-    socket.broadcast.emit('transmissaoMensagem', mensagem);
-  })
+  socket.on("disconnect", () => {
+      console.log("Client disconnected");
+    });
+
+
+
 });
+ 
+
+
