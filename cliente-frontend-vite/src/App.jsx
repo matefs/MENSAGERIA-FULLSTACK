@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
+import { Alert, Space } from 'antd';
+
 
 function SocketIODemo() {
   const socket = io("http://localhost:3000");
 
   const notification = {
-  id: 1,
   usuarioNotificacao: "Mateus",
   dataCriacao: new Date(),
   conteudo: {
@@ -13,10 +14,23 @@ function SocketIODemo() {
     descricao: "Esta notificacao foi enviada de um cliente para todos outros",
   },
   origem: "Cliente web React",
-  estado: "Não lida",
-  categoria: "Informativo"
+  foiLida: false,
+  categoria: "info"
   };
   
+
+  const [existeMensagem, setExisteMensagem ] = useState({
+    usuarioNotificacao: "",
+    dataCriacao: "",
+    conteudo: {
+      titulo: "",
+      descricao: "",
+    },
+    origem: "",
+    foiLida: false,
+    categoria: "", 
+  })
+
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected to server");
@@ -25,8 +39,20 @@ function SocketIODemo() {
   }, []);
 
   socket.on("messageBroadcast", (message) => {
-  alert(message.conteudo.descricao)
-  });
+  //alert(message.conteudo.descricao)
+  setExisteMensagem({ 
+    usuarioNotificacao: message.usuarioNotificacao,
+    dataCriacao: message.dataCriacao,
+    conteudo: {
+      titulo: message.conteudo.titulo,
+      descricao: message.conteudo.descricao,
+    },
+    origem: message.origem,
+    foiLida: message.foiLida,
+    categoria: message.categoria, 
+  })
+
+  }); // fim recebimento messageBraodcast
 
   const handleSubmit = () => {
     socket.emit("messageBroadcast", notification);
@@ -38,6 +64,14 @@ function SocketIODemo() {
 <div id="centralizador">
       <button onClick={handleSubmit}>Notificar outros usuarios</button>
 </div>
+
+ { existeMensagem.conteudo.titulo !=  "" && <Alert
+      message={existeMensagem.conteudo.titulo}
+      description={existeMensagem.conteudo.descricao}
+      type={existeMensagem.categoria}
+      showIcon
+    /> }
+
 
     </div>
   );
