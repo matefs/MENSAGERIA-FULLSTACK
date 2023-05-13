@@ -9,7 +9,10 @@
   "id": 1,
   "usuarioNotificacao": "John Doe",
   "dataCriacao": "2023-05-13T12:00:00Z",
-  "conteudo": "This is a notification message.",
+  "conteudo": {
+    "titulo": "My Notification Title",
+    "descricao": "This is a notification message description.",
+  },
   "origem": "System",
   "estado": "Aguardando",
   "categoria": "Informacao"
@@ -23,7 +26,10 @@
 {
   "usuarioNotificacao": "John Doe",
   "dataCriacao": "2023-05-13T12:00:00Z",
-  "conteudo": "This is a notification message.",
+  "conteudo": {
+    "titulo": "My Notification Title",
+    "descricao": "This is a notification message description.",
+  },
   "origem": "System",
   "estado": "Aguardando",
   "categoria": "Informacao"
