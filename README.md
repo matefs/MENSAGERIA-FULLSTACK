@@ -14,7 +14,6 @@
     "descricao": "This is a notification message description.",
   },
   "origem": "System",
-  "foiLida": false,
   "categoria": "Informacao"
 }
 
@@ -22,4 +21,10 @@
 
 - Observação: O id da mensagem só é criado quando ela é cadastrada no `banco de dados`. Ao enviar a solicitação para transmitir e então criar a mensagem, ela fica no mesmo formato, porém sem id.
  
-
+Na aplicação front end, foi adicionado dois atributos no objeto da mensagem: 
+  - `ativa` para criar a exibição condicional
+  - `foiLida` para dizer ao usuario se existem mensagens novas, não lidas
+```js
+  "ativa": false,
+  "foiLida": false,
+```
