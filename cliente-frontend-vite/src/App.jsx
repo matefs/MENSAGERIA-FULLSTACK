@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
-import { Alert, Space } from 'antd';
+import { Alert } from 'antd';
 
 
 function SocketIODemo() {
-  const socket = io("http://localhost:3000");
+//  var socket = io("http://localhost:3000");
+  var socket = useRef(null) 
 
   const notification = {
   usuarioNotificacao: "Mateus",
@@ -29,26 +30,40 @@ function SocketIODemo() {
     origem: "",
     foiLida: false,
     categoria: "", 
+    ativa: false
   })
 
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("Connected to server");
-    });
-    
+  useEffect(() => { 
+  socket.current = io("http://localhost:3000");
+  
+  socket.current.on("connect", () => {
+    console.log("Connected to server");
+  });
+
+  
+  socket.current.on("messageBroadcast", (message) => {
+  //alert(message.conteudo.descricao)
+  setExisteMensagem({ 
+    ...message,
+    ativa: true
+  })
+
+  }); 
+
+ 
   }, []);
 
-  socket.on("messageBroadcast", (message) => {
+/*   socket.on("messageBroadcast", (message) => {
   //alert(message.conteudo.descricao)
-
   setExisteMensagem({ 
-    ...message
+    ...message,
+    ativa: true
   })
 
-  }); // fim recebimento messageBraodcast
+  });  */
 
-  const handleSubmit = () => {
-    socket.emit("messageBroadcast", notification);
+  const handleSubmit = () => { 
+    socket.current.emit("messageBroadcast", notification); 
   };
 
   return (
@@ -58,20 +73,21 @@ function SocketIODemo() {
       <button onClick={handleSubmit}>Notificar outros usuarios</button>
 </div>
 
-  <Space direction="horizontal" style={{ width: '50%' }}> 
- { existeMensagem.conteudo.titulo !=  "" && <Alert
+  <div style={{ width: '50%', position: 'fixed', bottom: 10, left: 0 }}> 
+
+ { existeMensagem.ativa == true && <Alert
       message={existeMensagem.conteudo.titulo}
       description={existeMensagem.conteudo.descricao}
       type={existeMensagem.categoria}
       showIcon 
       onClick={() => setExisteMensagem({
       ...existeMensagem,
-      conteudo: {  titulo: '', descricao: ''}  
+      ativa: false
     }) }
     style={{cursor:'pointer'}}
 
     /> }
-  </Space>
+  </div>
 
     </div>
   );
