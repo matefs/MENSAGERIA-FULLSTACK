@@ -31,7 +31,7 @@ function SocketIODemo() {
   });
 
   useEffect(() => {
-    socket.current = io("http://localhost:3000");
+    socket.current = io("http://localhost:3000"); // lembrar de mudar aqui 
 
     socket.current.on("connect", () => {
       console.log("Connected to server");
@@ -49,10 +49,14 @@ function SocketIODemo() {
     socket.current.emit("messageBroadcast", notification);
   };
 
+  const handleTouchEnd = () => {
+    socket.current.emit("messageBroadcast", notification);
+  }
+
   return (
     <div>
       <div id="centralizador">
-        <button onClick={handleSubmit}>Notificar outros usuarios</button>
+        <button onClick={handleSubmit} onTouchEnd={handleTouchEnd}>Notificar outros usuarios</button>
       </div>
 
       <div style={{ width: "50%", position: "fixed", bottom: 10, left: 0 }}>
