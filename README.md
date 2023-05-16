@@ -18,7 +18,6 @@
 }
 
 ```
-
 - Observação: O id da mensagem só é criado quando ela é cadastrada no `banco de dados`. Ao enviar a solicitação para transmitir e então criar a mensagem, ela fica no mesmo formato, porém sem id.
  
 Na aplicação front end, foi adicionado dois atributos no objeto da mensagem: 
