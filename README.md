@@ -1,4 +1,5 @@
 ### Mensageria Fullstack
+A aplicação "MENSAGERIA-FULLSTACK" é um projeto desenvolvido com o uso da biblioteca Socket.IO, que fornece recursos para a comunicação em tempo real entre clientes e servidor.
 
 ![mostrando mensageria fullstack](https://github.com/matefs/MENSAGERIA-FULLSTACK/assets/30128774/d1580a68-3222-4deb-9e90-44217e7ac8aa)
 
