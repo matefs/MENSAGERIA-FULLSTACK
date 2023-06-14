@@ -1,7 +1,12 @@
-### Mensageria Fullstack
-A aplicação "MENSAGERIA-FULLSTACK" é um projeto desenvolvido com o uso da biblioteca Socket.IO, que fornece recursos para a comunicação em tempo real entre clientes e servidor.
+# Mensageria Fullstack
+Este repositório contém o projeto Mensageria Fullstack, um sistema de mensagens em tempo real desenvolvido com uma arquitetura fullstack. O projeto engloba o desenvolvimento tanto do backend quanto do frontend, permitindo que os usuários possam trocar mensagens instantaneamente.
 
 ![mostrando mensageria fullstack](https://github.com/matefs/MENSAGERIA-FULLSTACK/assets/30128774/d1580a68-3222-4deb-9e90-44217e7ac8aa)
+
+### Recursos do projeto:
+- Backend: O backend é desenvolvido utilizando Node.js e Express.js para criar uma API RESTful que gerencia as operações de mensagens. Ele utiliza o Socket.IO para fornecer comunicação em tempo real entre os clientes.
+- Frontend: O frontend é desenvolvido com React.js, utilizando bibliotecas como Redux e Socket.IO-client para consumir a API do backend e exibir as mensagens em tempo real para os usuários.
+
 
 #### Formato da mensagem (retornado do banco de dados): 
 ```json 
