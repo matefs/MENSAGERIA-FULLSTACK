@@ -1,6 +1,7 @@
 # Mensageria Fullstack
 Este repositório contém o projeto Mensageria Fullstack, um sistema de mensagens em tempo real desenvolvido com uma arquitetura fullstack. O projeto engloba o desenvolvimento tanto do backend quanto do frontend, permitindo que os usuários possam trocar mensagens instantaneamente.
 
+
 ![mostrando mensageria fullstack](https://github.com/matefs/MENSAGERIA-FULLSTACK/assets/30128774/d1580a68-3222-4deb-9e90-44217e7ac8aa)
 
 ### Recursos do projeto:
